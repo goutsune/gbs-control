@@ -2734,6 +2734,12 @@ boolean applyBestHTotal(uint16_t bestHTotal) {
   if (rto->outModeHdBypass) {
     return true; // false? doesn't matter atm
   }
+
+  if (rto->extClockGenDetected) {
+      SerialM.println(F("HTotal Adjust (skipped, synchronizing clockgen instead)"));
+      externalClockGenSyncInOutRate();
+      return true;
+  }
   
   uint16_t orig_htotal = GBS::VDS_HSYNC_RST::read();
   int diffHTotal = bestHTotal - orig_htotal;
