@@ -5914,7 +5914,7 @@ void runSyncWatcher()
       for (int a = 0; a < 128; a++) {
         if (GBS::STATUS_SYNC_PROC_HLOW_LEN::read() != hlowStart) {
           // source still there
-          if (rto->noSyncCounter % 450 == 0) {
+          if (rto->noSyncCounter % 250 == 0) {
             rto->currentLevelSOG = 0; // worst case, sometimes necessary, will be unstable but at least detect
             setAndUpdateSogLevel(rto->currentLevelSOG);
           }
@@ -5938,7 +5938,7 @@ void runSyncWatcher()
     }
 
     // long no signal time, check other input
-    if (rto->noSyncCounter % 413 == 0) {
+    if (rto->noSyncCounter % 213 == 0) {
       if (GBS::ADC_INPUT_SEL::read() == 1) { GBS::ADC_INPUT_SEL::write(0); }
       else { GBS::ADC_INPUT_SEL::write(1); }
       delay(40);
@@ -6052,7 +6052,7 @@ void runSyncWatcher()
           // if we got here from standby mode, return there soon
           // but occasionally, this is a regular new mode that needs a SP parameter change to work
           // ie: 1080p needs longer post coast, which the syncwatcher loop applies at some point
-          rto->noSyncCounter = 0x05ff; // give some time in normal loop
+          rto->noSyncCounter = 0xf0; // give some time in normal loop
         }
       }
     }
@@ -6757,7 +6757,7 @@ void runSyncWatcher()
     }
   }
 
-  if (rto->noSyncCounter >= 0x07fe) {
+  if (rto->noSyncCounter >= 0xff) {
     // couldn't recover, source is lost
     // restore initial conditions and move to input detect
     GBS::DAC_RGBS_PWDNZ::write(0); // 0 = disable DAC
