@@ -831,7 +831,7 @@ section[name="alert"] {
                 gbs-element-ref="button720x480"
                 gbs-role="preset"
               >
-                480i 576i
+                480p 576p
               </button>
               <button
                 gbs-message="L"
@@ -854,7 +854,7 @@ section[name="alert"] {
               >
                 <div class="gbs-icon">swap_calls</div>
                 <div class="gbs-button__resolution--pass-through">
-                  Pass Throught
+                  Pass Through
                 </div>
               </button>
             </div>
@@ -1310,9 +1310,9 @@ section[name="alert"] {
             </legend>
             <ul class="gbs-help">
               <!-- prettier-ignore -->
-              <li>Scanlines only work with 240p sources. They look best with the Line Filter enabled.</li>
+              <li>Scanlines only work with 15KHz sources. They look best with the Line Filter enabled.</li>
               <!-- prettier-ignore -->
-              <li>Peaking and Step Response are subtle sharpening filters and recommended.</li>
+              <li>Peaking and Step Response are subtle sharpening filters and are recommended.</li>
             </ul>
             <div class="gbs-margin__bottom--16">
               <div class="gbs-flex gbs-margin__bottom--16">
@@ -1537,7 +1537,7 @@ section[name="alert"] {
                   <!-- prettier-ignore -->
                   <ul class="gbs-help">
                     <li>Gbscontrol detects interlaced content and automatically toggles deinterlacing.</li>
-                    <li>Bob Method: essentially no deinterlacing, no added lag but flickers</li>
+                    <li>Bob: essentially no deinterlacing, no added lag but flickers. Can be combined with scanlines.</li>
                     <li>Motion Adaptive: removes flicker, adds 1 frame of lag and shows some artefacts in moving details</li>
                     <li>If possible, configure the source for progressive output. Otherwise, using Motion Adaptive is recommended.</li>
                   </ul>
@@ -1701,7 +1701,7 @@ section[name="alert"] {
                 class="gbs-button"
               >
                 <div class="gbs-icon">memory</div>
-                <div>Cycle SDRAM</div>
+                <div>Cycle SDRAM Frequency</div>
               </button>
             </div>
             <div class="gbs-flex">
@@ -1802,7 +1802,7 @@ section[name="alert"] {
                 class="gbs-button"
               >
                 <div class="gbs-icon">settings_input_hdmi</div>
-                <div>60/50Hz HDMI</div>
+                <div>Snap to 50/60Hz</div>
               </button>
 
               <button
@@ -1878,7 +1878,7 @@ section[name="alert"] {
           <fieldset class="gbs-fieldset">
             <legend class="gbs-fieldset__legend gbs-fieldset__legend--help"">
               <div class="gbs-icon">sd_card</div>
-              <div>Backup [intended for same device]</div>
+              <div>Backup [intended for the same device]</div>
             </legend>
             <!-- prettier-ignore -->
             <ul class="gbs-help">
